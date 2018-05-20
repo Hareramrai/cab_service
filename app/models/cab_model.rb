@@ -1,0 +1,2 @@
+class CabModel < ApplicationRecord
+end
