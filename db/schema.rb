@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180520053337) do
+ActiveRecord::Schema.define(version: 20180520154300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cab_locations", force: :cascade do |t|
+    t.bigint "cab_id"
+    t.float "current_latitude"
+    t.float "current_longitude"
+    t.float "trip_end_lat"
+    t.float "trip_end_long"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cab_id"], name: "index_cab_locations_on_cab_id"
+  end
 
   create_table "cab_models", force: :cascade do |t|
     t.string "name"
@@ -51,10 +62,6 @@ ActiveRecord::Schema.define(version: 20180520053337) do
     t.float "ratings"
     t.datetime "join_on"
     t.boolean "is_online"
-    t.float "current_latitude"
-    t.float "current_longitude"
-    t.float "trip_end_lat"
-    t.float "trip_end_long"
     t.bigint "owner_id"
     t.boolean "marked_as_deleted", default: false
     t.datetime "created_at", null: false
@@ -88,6 +95,7 @@ ActiveRecord::Schema.define(version: 20180520053337) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "cab_locations", "cabs"
   add_foreign_key "cabs", "cab_models"
   add_foreign_key "drivers", "owners"
   add_foreign_key "owners", "vendors"

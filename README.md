@@ -50,3 +50,6 @@ This is going to store model of a car with other information.
 
 # Cab 
 This is going to assign to driver and a driver will have only one cab.
+
+# CabLocation
+This is going to store cab's current location. Currently I am going to store in db but can be store redis or some kind in memory storage service. Also we are going to have rotation policy, may be we can clean or move data from it after 1 or 2 hours. 
