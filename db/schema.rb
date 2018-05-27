@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180521104316) do
+ActiveRecord::Schema.define(version: 20180526150744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,9 @@ ActiveRecord::Schema.define(version: 20180521104316) do
     t.boolean "marked_as_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "driver_id"
     t.index ["cab_model_id"], name: "index_cabs_on_cab_model_id"
+    t.index ["driver_id"], name: "index_cabs_on_driver_id"
   end
 
   create_table "drivers", force: :cascade do |t|
@@ -136,6 +138,7 @@ ActiveRecord::Schema.define(version: 20180521104316) do
     t.boolean "marked_as_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cab_type"
     t.index ["driver_id"], name: "index_trips_on_driver_id"
     t.index ["rider_id"], name: "index_trips_on_rider_id"
   end
@@ -152,6 +155,7 @@ ActiveRecord::Schema.define(version: 20180521104316) do
 
   add_foreign_key "cab_locations", "cabs"
   add_foreign_key "cabs", "cab_models"
+  add_foreign_key "cabs", "drivers"
   add_foreign_key "drivers", "owners"
   add_foreign_key "owners", "vendors"
   add_foreign_key "rates", "vendors"

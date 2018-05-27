@@ -4,7 +4,8 @@ FactoryBot.define do
     wi_fi false
     type ""
     audio_system false
-    references ""
     description "MyString"
+    cab_model
+    driver
   end
 end

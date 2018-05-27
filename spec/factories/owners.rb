@@ -9,6 +9,6 @@ FactoryBot.define do
     country "MyString"
     active false
     marked_as_deleted false
-    vendor nil
+    vendor
   end
 end
