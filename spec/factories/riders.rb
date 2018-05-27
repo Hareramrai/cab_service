@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :rider do
-    name "MyString"
-    email "MyString"
-    phone "MyString"
+    name { Faker::Name.unique.name }
+    email { Faker::Internet.unique.email }
+    phone Faker::PhoneNumber.cell_phone
     city "MyString"
     state "MyString"
     country "MyString"

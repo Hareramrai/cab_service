@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'versionist'
 gem 'active_model_serializers', '0.10.2'
 gem 'geocoder'
+gem 'geokit-rails'
+gem 'aasm', '~> 4.12' #for state manager
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
